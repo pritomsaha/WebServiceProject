@@ -1,0 +1,14 @@
+/media/pritom/Education/Dropbox/Projects/DSE/StudentVerifierService/bin/StudentVerifierService.dll
+/media/pritom/Education/Dropbox/Projects/DSE/StudentVerifierService/bin/StudentVerifierService.pdb
+/media/pritom/Education/Dropbox/Projects/DSE/StudentVerifierService/bin/System.Net.Http.Formatting.dll
+/media/pritom/Education/Dropbox/Projects/DSE/StudentVerifierService/bin/System.Web.Http.dll
+/media/pritom/Education/Dropbox/Projects/DSE/StudentVerifierService/bin/System.Web.Http.WebHost.dll
+/media/pritom/Education/Dropbox/Projects/DSE/StudentVerifierService/bin/System.Net.Http.Formatting.xml
+/media/pritom/Education/Dropbox/Projects/DSE/StudentVerifierService/bin/System.Web.Http.xml
+/media/pritom/Education/Dropbox/Projects/DSE/StudentVerifierService/bin/System.Web.Http.WebHost.xml
+/media/pritom/Education/Dropbox/Projects/DSE/StudentVerifierService/bin/Newtonsoft.Json.xml
+/media/pritom/Education/Dropbox/Projects/DSE/StudentVerifierService/obj/Debug/StudentVerifierService.csprojResolveAssemblyReference.cache
+/media/pritom/Education/Dropbox/Projects/DSE/StudentVerifierService/obj/Debug/StudentVerifierService.csproj.CoreCompileInputs.cache
+/media/pritom/Education/Dropbox/Projects/DSE/StudentVerifierService/obj/Debug/StudentVerifierService.dll
+/media/pritom/Education/Dropbox/Projects/DSE/StudentVerifierService/obj/Debug/StudentVerifierService.pdb
+/media/pritom/Education/Dropbox/Projects/DSE/StudentVerifierService/bin/MySql.Data.dll

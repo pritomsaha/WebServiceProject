@@ -1,0 +1,84 @@
+﻿@section Greetings{
+    <form method="post" action="@Url.Action("Logout", "Home")">
+        <strong>Welcome @Session["user"]</strong> <input type="submit" class="btn btn-link" value="Logout"> 
+    </form>
+    <br>
+}
+
+<h2 class="center-block text-center" >Testimonial</h2>
+<br>
+<div class="row">
+    <input hidden="hidden" id="pdfName" value='testimonial_@ViewData["appId"]'>
+    <div class="col-md-2"></div>
+    <div class="col-md-8" id="testimonial" style="font-family: initial; color:black;">
+        <br><br><br>
+        <div class="row">
+            <div class="col-md-6">Application No: @ViewData["appId"]</div>
+            <div class="col-md-6" align="right">Date: @DateTime.Now.ToString("dd/MM/yyyy")</div>
+        </div>
+        <br>
+        <h2 class="center-block text-center">TO WHOME IT MAY CONCERN</h2>
+        <br>
+        <br>
+        @{  
+            var s_he= (ViewData["gender"].Equals("male"))? "He": "She"; 
+            var his_her= (ViewData["gender"].Equals("male"))? "his": "her";
+            var result = s_he+" has successfully completed "+((ViewData["semester"]==ViewData["totalSemester"])?
+                    "the final examination of"+ViewData["degree"]:
+                    "semester-"+ViewData["semester"]);
+
+        }
+        <p style="text-align:justify">
+            This is to certify that @ViewData["name"] S/o, @ViewData["fatherName"] & @ViewData["motherName"], is a student
+            of @ViewData["degree"] of this Institute, Session: @ViewData["session"], Reg: @ViewData["regNum"]. @result of "@ViewData["degree"]" degree with CGPA @ViewData["cgpa"] out of 4.00. 
+            <br><br>
+            @s_he is energetic, efficient and well behaved. @s_he has a pleasant personality and possesses good moral character. To the best of my knowledge, 
+            @s_he did not take part in any activity subversive of the state or of discipline.
+            <br><br>
+            I wish @his_her every success in life.
+            <br><br><br>
+
+
+            Director
+            <br><br>
+        </p>    
+        
+    </div>
+    <div class="col-md-2"></div>
+    
+</div>
+<br>
+<div align="center"><button id="cmd" class="btn btn-primary">Download PDF</button></div>
+<br>
+
+
+
+@section Scripts{
+    <script src="~/assets/js/jspdf.min.js"></script>
+    <script src="~/assets/js/html2canvas.js"></script>
+
+
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+            $("#cmd").click(function(){
+
+                html2canvas($('#testimonial')[0]).then(function(canvas){
+                    cb(canvas);
+                });
+
+            });
+
+        });
+
+
+        function cb(canvas){
+            var img = canvas.toDataURL("image/jpeg", 1.0);
+            var doc = new jsPDF('p', 'mm');
+            doc.addImage(img, 'JPEG', 15, 40, 180, 160);
+            doc.save($('#pdfName').val());
+        }
+       
+    </script>
+
+}

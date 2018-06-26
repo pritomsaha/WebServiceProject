@@ -1,0 +1,48 @@
+﻿@section Greetings{
+    <form method="post" action="@Url.Action("Logout", "Home")">
+        <strong>Welcome @Session["user"]</strong> <input type="submit" class="btn btn-link" value="Logout"> 
+    </form>
+    <br>
+}
+
+<table class="table table-bordered table-striped ">
+    <h2>Applications for Testimonial</h2>
+    <thead>
+      <tr>
+        <th>Application Id</th>
+        <th>Reg Num</th>
+        <th>Date</th>
+        <th>Email</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      @{
+        var dicts = (Dictionary<string, string>[])ViewData["dicts"];
+       }  
+      @for(int i=0; i<dicts.Length; i++){
+          <tr>
+            <td>@dicts[i]["id"]</td>
+            <td>@dicts[i]["regNum"]</td>
+            <td>@dicts[i]["date"]</td>
+            <td>@dicts[i]["email"]</td>
+            <td>
+                
+
+                <form style ='float: left; padding-right:5px;'  method="post" action="testimonial/">
+                    <input hidden="hidden" name="appId" value='@dicts[i]["id"]'>
+                    <input hidden="hidden" name="regNum" value='@dicts[i]["regNum"]'>
+                    <input hidden="hidden" name="degreeId" value='@dicts[i]["degreeId"]'>
+                    <input type="submit" class="btn btn-info" name='testi_submit_@dicts[i]["id"]' value="Testimonial">
+                </form>
+
+                <form style ='float: left;' method="post" action="deliver/">
+                    <input hidden="hidden" name="appId" value='@dicts[i]["id"]'>
+                    <input type="submit" class="btn btn-warning" name='deliver_submit_@dicts[i]["id"]' value="Delivered">
+                </form>
+            </td>
+          </tr>
+      }
+
+    </tbody>
+ </table>

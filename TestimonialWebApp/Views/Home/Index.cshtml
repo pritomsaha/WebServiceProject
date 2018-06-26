@@ -1,0 +1,34 @@
+﻿<form method="post" action="VerifyStudent/" class="bg-white rounded pb_form_v1">
+    <b>Enter Your Registration Number</b>
+    <div class="form-group">
+        
+        <input type="text" name="regNum" class="form-control pb_height-50 reverse" >
+        <small class="error">
+            @{  
+                var message = "";
+                if(TempData["error"]!=null){
+                    message = TempData["error"].ToString();
+                }
+            }
+            @message
+        </small>    
+    </div>
+
+
+    <div class="form-group">
+        <input type="submit" name="submit" class="btn btn-primary btn-lg btn-block pb_btn-pill  btn-shadow-blue" value="Application Status">
+        <input type="submit" name="submit" class="btn btn-primary btn-lg btn-block pb_btn-pill  btn-shadow-blue" value="New Application">
+    </div>
+        @{  
+             var success = "";
+             if(TempData["success"]!=null){
+                success = TempData["success"].ToString();
+             }
+         }
+         @success
+    <div>
+        
+    </div>
+
+</form>
+

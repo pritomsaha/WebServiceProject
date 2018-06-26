@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="dse.webservices" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="dse.webservices" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="dse.webservices">
+      <s:element name="getPayment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="transactionNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPaymentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getPaymentResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="double" type="s:double" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getPaymentSoapIn">
+    <wsdl:part name="parameters" element="tns:getPayment" />
+  </wsdl:message>
+  <wsdl:message name="getPaymentSoapOut">
+    <wsdl:part name="parameters" element="tns:getPaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPaymentHttpGetIn">
+    <wsdl:part name="transactionNum" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getPaymentHttpGetOut">
+    <wsdl:part name="Body" element="tns:double" />
+  </wsdl:message>
+  <wsdl:message name="getPaymentHttpPostIn">
+    <wsdl:part name="transactionNum" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getPaymentHttpPostOut">
+    <wsdl:part name="Body" element="tns:double" />
+  </wsdl:message>
+  <wsdl:portType name="PaymentServiceSoap">
+    <wsdl:operation name="getPayment">
+      <wsdl:input message="tns:getPaymentSoapIn" />
+      <wsdl:output message="tns:getPaymentSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="PaymentServiceHttpGet">
+    <wsdl:operation name="getPayment">
+      <wsdl:input message="tns:getPaymentHttpGetIn" />
+      <wsdl:output message="tns:getPaymentHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="PaymentServiceHttpPost">
+    <wsdl:operation name="getPayment">
+      <wsdl:input message="tns:getPaymentHttpPostIn" />
+      <wsdl:output message="tns:getPaymentHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PaymentServiceSoap" type="tns:PaymentServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getPayment">
+      <soap:operation soapAction="dse.webservices/getPayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PaymentServiceSoap12" type="tns:PaymentServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getPayment">
+      <soap12:operation soapAction="dse.webservices/getPayment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PaymentServiceHttpGet" type="tns:PaymentServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="getPayment">
+      <http:operation location="/getPayment" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PaymentServiceHttpPost" type="tns:PaymentServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="getPayment">
+      <http:operation location="/getPayment" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PaymentService">
+    <wsdl:port name="PaymentServiceSoap" binding="tns:PaymentServiceSoap">
+      <soap:address location="http://127.0.0.1:8000/PaymentService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PaymentServiceSoap12" binding="tns:PaymentServiceSoap12">
+      <soap12:address location="http://127.0.0.1:8000/PaymentService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PaymentServiceHttpGet" binding="tns:PaymentServiceHttpGet">
+      <http:address location="http://127.0.0.1:8000/PaymentService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PaymentServiceHttpPost" binding="tns:PaymentServiceHttpPost">
+      <http:address location="http://127.0.0.1:8000/PaymentService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

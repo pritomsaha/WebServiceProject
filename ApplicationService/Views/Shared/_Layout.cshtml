@@ -1,0 +1,87 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <title>Online Apply for Testimonial</title>
+        <meta name="description" content="Free Bootstrap 4 Template by uicookies.com">
+        <meta name="keywords" content="Free website templates, Free bootstrap themes, Free template, Free bootstrap, Free website template">
+    
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600|Montserrat:200,300,400" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/assets/css/bootstrap/bootstrap.css" runat="server">
+    <link rel="stylesheet" href="~/assets/fonts/ionicons/css/ionicons.min.css" runat="server">
+    <link rel="stylesheet" href="~/assets/fonts/law-icons/font/flaticon.css" runat="server">
+
+    <link rel="stylesheet" href="~/assets/fonts/fontawesome/css/font-awesome.min.css">
+    
+    
+    <link rel="stylesheet" href="~/assets/css/slick.css">
+    <link rel="stylesheet" href="~/assets/css/slick-theme.css">
+
+    <link rel="stylesheet" href="~/assets/css/helpers.css">
+    <link rel="stylesheet" href="~/assets/css/style.css">
+    <link rel="stylesheet" href="~/assets/css/landing-2.css">
+    <style>
+        .error{
+            color: red;
+         }
+
+            
+    </style>    
+    </head>
+    <body data-spy="scroll" data-offset="200">
+
+        <section style="height:200px;" class="pb_cover_v3 overflow-hidden cover-bg-indigo cover-bg-opacity text-left pb_gradient_v1 pb_slant-light" id="section-home">
+          <div class="container" id="title">
+             <h2 class="heading mb-3">Online Application for Testimonial</h2>
+             <div class="sub-heading">
+                <p class="mb-4">Institute of Information Technology, University of Dhaka</p>
+             </div>
+
+          </div>
+            
+        </section>
+        <!-- END section -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 center-block text-center">@RenderSection("Greetings", false)</div>
+            </div>    
+            @RenderBody()
+        </div>
+
+        <footer class="pb_footer bg-light" role="contentinfo">
+          <div class="container">
+            
+            <div class="row">
+              <div class="col text-center">
+                <p class="pb_font-14">&copy; 2018 <a href="http://www.iit.du.ac.bd/">IIT, University of Dhaka</a>. All Rights Reserved. <br> Designed &amp; Developed by Pritom Saha Akash</p>
+              </div>
+            </div>
+          </div>
+        </footer>
+        
+        <!-- loader -->
+        <div id="pb_loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#1d82ff"/></svg></div>
+
+
+
+        <script src="~/assets/js/jquery.min.js"></script>
+        
+        <script src="~/assets/js/popper.min.js"></script>
+        <script src="~/assets/js/bootstrap.min.js"></script>
+        <script src="~/assets/js/slick.min.js"></script>
+        <script src="~/assets/js/jquery.mb.YTPlayer.min.js"></script>
+
+        <script src="~/assets/js/jquery.waypoints.min.js"></script>
+        <script src="~/assets/js/jquery.easing.1.3.js"></script>
+
+        <script src="~/assets/js/main.js"></script>
+
+
+        @RenderSection("Scripts", false)
+    </body>
+</html>
+

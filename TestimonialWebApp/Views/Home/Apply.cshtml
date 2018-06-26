@@ -1,0 +1,68 @@
+﻿<form method="post" action="submit/" class="bg-white rounded pb_form_v1" onsubmit="return validate();">
+    <div class="form-group">
+        <label for="regNum">Registration Number</label>
+        <input type="text" readonly="readonly" id="regNum" name="regNum" class="form-control pb_height-50 reverse" value='@TempData["regNum"]' >     
+    </div>
+
+    <div class="form-group">
+        <label for="transacNum">Transaction Number</label>
+        <input type="text" id="transacNum" name="transacNum" class="form-control pb_height-50 reverse" >     
+        <small class="error" id="transacError">
+            @{  
+                var message = "";
+                if(TempData["error"]!=null){
+                    message = TempData["error"].ToString();
+                }
+            }
+            @message
+        </small>   
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" class="form-control pb_height-50 reverse" >     
+    </div>
+    @{
+        var degrees = (Dictionary<int, string>)ViewData["dict"];
+    }
+    <div class="form-group">
+        <label for="degree">Degree Program</label>
+        <select class="form-control pb_height-50 reverse" name="degree">
+
+            @foreach(var item in degrees){
+                <option value='@item.Key'>@item.Value</option>
+            }
+        </select>
+        <small class="error" id="transacError">
+            @{  
+                var error_program = "";
+                if(TempData["error_program"]!=null){
+                   error_program = TempData["error_program"].ToString();
+                }
+            }
+            @error_program
+        </small> 
+    </div>
+
+    <div class="button-group">
+        <input type="submit" class="btn btn-primary btn-lg btn-block pb_btn-pill  btn-shadow-blue" value="Submit">
+        <button class="btn btn-primary btn-lg btn-block pb_btn-pill  btn-shadow-blue" onclick="location.href='@Url.Action("Index")'" >Go Back</button>
+    </div>
+
+    <script type="text/javascript">
+    function validate(){
+        if(!$('#regNum').val()){
+            return false;
+        }
+        if(!$('#transacNum').val()){
+            return false;
+        }
+        if(!$('#email').val()){
+            return false;
+        }
+        return true;
+    }
+</script>
+
+</form>
+

@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="dse.webservices" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="dse.webservices" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="dse.webservices">
+      <s:element name="getUpdatedResult">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="regNum" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="degreeId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUpdatedResultResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getUpdatedResultResult" type="tns:Result" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Result">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="regNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="degree" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="cgpa" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="passYear" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="semester" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="totalSemester" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="checkStudentInResult">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="regNum" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="degreeId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="checkStudentInResultResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="checkStudentInResultResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDegreeList">
+        <s:complexType />
+      </s:element>
+      <s:element name="getDegreeListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getDegreeListResult" type="tns:ArrayOfDegree" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDegree">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Degree" nillable="true" type="tns:Degree" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Degree">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="degree" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Result" nillable="true" type="tns:Result" />
+      <s:element name="boolean" type="s:boolean" />
+      <s:element name="ArrayOfDegree" nillable="true" type="tns:ArrayOfDegree" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getUpdatedResultSoapIn">
+    <wsdl:part name="parameters" element="tns:getUpdatedResult" />
+  </wsdl:message>
+  <wsdl:message name="getUpdatedResultSoapOut">
+    <wsdl:part name="parameters" element="tns:getUpdatedResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="checkStudentInResultSoapIn">
+    <wsdl:part name="parameters" element="tns:checkStudentInResult" />
+  </wsdl:message>
+  <wsdl:message name="checkStudentInResultSoapOut">
+    <wsdl:part name="parameters" element="tns:checkStudentInResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDegreeListSoapIn">
+    <wsdl:part name="parameters" element="tns:getDegreeList" />
+  </wsdl:message>
+  <wsdl:message name="getDegreeListSoapOut">
+    <wsdl:part name="parameters" element="tns:getDegreeListResponse" />
+  </wsdl:message>
+  <wsdl:message name="getUpdatedResultHttpGetIn">
+    <wsdl:part name="regNum" type="s:string" />
+    <wsdl:part name="degreeId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getUpdatedResultHttpGetOut">
+    <wsdl:part name="Body" element="tns:Result" />
+  </wsdl:message>
+  <wsdl:message name="checkStudentInResultHttpGetIn">
+    <wsdl:part name="regNum" type="s:string" />
+    <wsdl:part name="degreeId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="checkStudentInResultHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="getDegreeListHttpGetIn" />
+  <wsdl:message name="getDegreeListHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDegree" />
+  </wsdl:message>
+  <wsdl:message name="getUpdatedResultHttpPostIn">
+    <wsdl:part name="regNum" type="s:string" />
+    <wsdl:part name="degreeId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getUpdatedResultHttpPostOut">
+    <wsdl:part name="Body" element="tns:Result" />
+  </wsdl:message>
+  <wsdl:message name="checkStudentInResultHttpPostIn">
+    <wsdl:part name="regNum" type="s:string" />
+    <wsdl:part name="degreeId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="checkStudentInResultHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="getDegreeListHttpPostIn" />
+  <wsdl:message name="getDegreeListHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDegree" />
+  </wsdl:message>
+  <wsdl:portType name="ResultServiceSoap">
+    <wsdl:operation name="getUpdatedResult">
+      <wsdl:input message="tns:getUpdatedResultSoapIn" />
+      <wsdl:output message="tns:getUpdatedResultSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="checkStudentInResult">
+      <wsdl:input message="tns:checkStudentInResultSoapIn" />
+      <wsdl:output message="tns:checkStudentInResultSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDegreeList">
+      <wsdl:input message="tns:getDegreeListSoapIn" />
+      <wsdl:output message="tns:getDegreeListSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ResultServiceHttpGet">
+    <wsdl:operation name="getUpdatedResult">
+      <wsdl:input message="tns:getUpdatedResultHttpGetIn" />
+      <wsdl:output message="tns:getUpdatedResultHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="checkStudentInResult">
+      <wsdl:input message="tns:checkStudentInResultHttpGetIn" />
+      <wsdl:output message="tns:checkStudentInResultHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDegreeList">
+      <wsdl:input message="tns:getDegreeListHttpGetIn" />
+      <wsdl:output message="tns:getDegreeListHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ResultServiceHttpPost">
+    <wsdl:operation name="getUpdatedResult">
+      <wsdl:input message="tns:getUpdatedResultHttpPostIn" />
+      <wsdl:output message="tns:getUpdatedResultHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="checkStudentInResult">
+      <wsdl:input message="tns:checkStudentInResultHttpPostIn" />
+      <wsdl:output message="tns:checkStudentInResultHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDegreeList">
+      <wsdl:input message="tns:getDegreeListHttpPostIn" />
+      <wsdl:output message="tns:getDegreeListHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ResultServiceSoap" type="tns:ResultServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getUpdatedResult">
+      <soap:operation soapAction="dse.webservices/getUpdatedResult" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkStudentInResult">
+      <soap:operation soapAction="dse.webservices/checkStudentInResult" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDegreeList">
+      <soap:operation soapAction="dse.webservices/getDegreeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ResultServiceSoap12" type="tns:ResultServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getUpdatedResult">
+      <soap12:operation soapAction="dse.webservices/getUpdatedResult" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkStudentInResult">
+      <soap12:operation soapAction="dse.webservices/checkStudentInResult" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDegreeList">
+      <soap12:operation soapAction="dse.webservices/getDegreeList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ResultServiceHttpGet" type="tns:ResultServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="getUpdatedResult">
+      <http:operation location="/getUpdatedResult" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkStudentInResult">
+      <http:operation location="/checkStudentInResult" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDegreeList">
+      <http:operation location="/getDegreeList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ResultServiceHttpPost" type="tns:ResultServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="getUpdatedResult">
+      <http:operation location="/getUpdatedResult" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkStudentInResult">
+      <http:operation location="/checkStudentInResult" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDegreeList">
+      <http:operation location="/getDegreeList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ResultService">
+    <wsdl:port name="ResultServiceSoap" binding="tns:ResultServiceSoap">
+      <soap:address location="http://127.0.0.1:8020/ResultService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ResultServiceSoap12" binding="tns:ResultServiceSoap12">
+      <soap12:address location="http://127.0.0.1:8020/ResultService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ResultServiceHttpGet" binding="tns:ResultServiceHttpGet">
+      <http:address location="http://127.0.0.1:8020/ResultService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ResultServiceHttpPost" binding="tns:ResultServiceHttpPost">
+      <http:address location="http://127.0.0.1:8020/ResultService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

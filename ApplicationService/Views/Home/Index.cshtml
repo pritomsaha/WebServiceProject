@@ -1,0 +1,38 @@
+﻿
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+
+        <form method="post" action="Login/" class="bg-white rounded pb_form_v1">
+            <h2 class="mb-4 mt-0 text-center">Admin Sign In</h2>
+            <div class="form-group">
+                <label for="username">User Name</label>
+                <input type="text" name="username" class="form-control pb_height-50 reverse" >
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" class="form-control pb_height-50 reverse" >
+            </div>
+
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary btn-lg btn-block pb_btn-pill  btn-shadow-blue" value="Sign In">
+            </div>
+                @{  
+                     var success = "";
+                     if(TempData["success"]!=null){
+                        success = TempData["success"].ToString();
+                     }
+                 }
+                 @success
+            <div>
+                
+            </div>
+
+        </form>
+        
+    </div>
+    <div class="col-md-2"></div>
+</div>
+
+

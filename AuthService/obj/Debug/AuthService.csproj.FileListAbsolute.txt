@@ -1,0 +1,15 @@
+/media/pritom/Education/Dropbox/Projects/DSE/AuthService/bin/AuthService.dll
+/media/pritom/Education/Dropbox/Projects/DSE/AuthService/bin/AuthService.pdb
+/media/pritom/Education/Dropbox/Projects/DSE/AuthService/bin/MySql.Data.dll
+/media/pritom/Education/Dropbox/Projects/DSE/AuthService/bin/Newtonsoft.Json.dll
+/media/pritom/Education/Dropbox/Projects/DSE/AuthService/bin/System.Net.Http.Formatting.dll
+/media/pritom/Education/Dropbox/Projects/DSE/AuthService/bin/System.Web.Http.dll
+/media/pritom/Education/Dropbox/Projects/DSE/AuthService/bin/System.Web.Http.WebHost.dll
+/media/pritom/Education/Dropbox/Projects/DSE/AuthService/bin/System.Net.Http.Formatting.xml
+/media/pritom/Education/Dropbox/Projects/DSE/AuthService/bin/System.Web.Http.xml
+/media/pritom/Education/Dropbox/Projects/DSE/AuthService/bin/System.Web.Http.WebHost.xml
+/media/pritom/Education/Dropbox/Projects/DSE/AuthService/bin/Newtonsoft.Json.xml
+/media/pritom/Education/Dropbox/Projects/DSE/AuthService/obj/Debug/AuthService.csprojResolveAssemblyReference.cache
+/media/pritom/Education/Dropbox/Projects/DSE/AuthService/obj/Debug/AuthService.csproj.CoreCompileInputs.cache
+/media/pritom/Education/Dropbox/Projects/DSE/AuthService/obj/Debug/AuthService.dll
+/media/pritom/Education/Dropbox/Projects/DSE/AuthService/obj/Debug/AuthService.pdb

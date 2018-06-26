@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://127.0.0.1:8020/StudentVerifierService.asmx?wsdl" docRef="http://127.0.0.1:8020/StudentVerifierService.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://127.0.0.1:8020/StudentVerifierService.asmx" xmlns:q1="dse.webservices" binding="q1:StudentVerifierServiceSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://127.0.0.1:8020/StudentVerifierService.asmx" xmlns:q2="dse.webservices" binding="q2:StudentVerifierServiceSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>
